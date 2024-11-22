@@ -1,0 +1,21 @@
+{
+    "name": "callmeaf/geography",
+    "description": "Manage Country, State, City and etc ...",
+    "type": "library",
+    "require": {
+        "callmeaf/base": "dev-master"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Callmeaf\\Geography\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "alikhoshkar",
+            "email": "alikhoshkar2000@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
