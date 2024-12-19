@@ -47,7 +47,7 @@ class CallmeafGeographyServiceProvider extends ServiceProvider
 
         $this->mergeConfigFrom(self::CONFIGS_DIR . '/callmeaf-province.php',self::CONFIGS_PROVINCE_KEY);
         $this->publishes([
-            self::CONFIGS_PROVINCE_KEY . '/callmeaf-province.php' => config_path('callmeaf-province.php'),
+            self::CONFIGS_DIR . '/callmeaf-province.php' => config_path('callmeaf-province.php'),
         ],self::CONFIGS_PROVINCE_GROUP);
 
     }
@@ -67,7 +67,23 @@ class CallmeafGeographyServiceProvider extends ServiceProvider
 
     private function registerEvents(): void
     {
+        foreach (config('callmeaf-continent.events') as $event => $listeners) {
+            Event::listen($event,function($event) use ($listeners) {
+                foreach($listeners as $listener) {
+                    app($listener)->handle($event);
+                }
+            });
+        }
+
         foreach (config('callmeaf-country.events') as $event => $listeners) {
+            Event::listen($event,function($event) use ($listeners) {
+                foreach($listeners as $listener) {
+                    app($listener)->handle($event);
+                }
+            });
+        }
+
+        foreach (config('callmeaf-province.events') as $event => $listeners) {
             Event::listen($event,function($event) use ($listeners) {
                 foreach($listeners as $listener) {
                     app($listener)->handle($event);

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(config('callmeaf-country.model'),'country_id')->nullable()->constrained(getTableName(config('callmeaf-country.model')))->cascadeOnDelete();
+            $table->foreignIdFor(config('callmeaf-country.model'))->nullable()->constrained(getTableName(config('callmeaf-country.model')))->cascadeOnDelete();
             $table->foreignIdFor(config('callmeaf-province.model'),'parent_id')->nullable()->constrained(getTableName(config('callmeaf-province.model')))->cascadeOnDelete();
             $table->string('status')->nullable();
             $table->string('type')->nullable();
