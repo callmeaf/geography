@@ -11,6 +11,7 @@ use Callmeaf\Base\Traits\HasDate;
 use Callmeaf\Base\Traits\HasParent;
 use Callmeaf\Base\Traits\HasStatus;
 use Callmeaf\Base\Traits\HasType;
+use Callmeaf\Base\Traits\Sluggable;
 use Callmeaf\Geography\Enums\ProvinceStatus;
 use Callmeaf\Geography\Enums\ProvinceType;
 use Illuminate\Database\Eloquent\Model;
@@ -18,7 +19,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Province extends Model implements HasResponseTitles,HasEnum
 {
-    use HasParent,HasChildren,HasDate,HasStatus,HasType;
+    use HasParent,HasChildren,HasDate,HasStatus,HasType,Sluggable;
     protected $fillable = [
         'parent_id',
         'status',
