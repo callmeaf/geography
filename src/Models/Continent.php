@@ -9,13 +9,14 @@ use Callmeaf\Base\Traits\HasChildren;
 use Callmeaf\Base\Traits\HasDate;
 use Callmeaf\Base\Traits\HasStatus;
 use Callmeaf\Base\Traits\HasType;
+use Callmeaf\Base\Traits\Sluggable;
 use Callmeaf\Geography\Enums\ContinentStatus;
 use Callmeaf\Geography\Enums\ContinentType;
 use Illuminate\Database\Eloquent\Model;
 
 class Continent extends Model implements HasResponseTitles,HasEnum
 {
-    use HasChildren,HasDate,HasStatus,HasType;
+    use HasChildren,HasDate,HasStatus,HasType,Sluggable;
     protected $fillable = [
         'status',
         'type',

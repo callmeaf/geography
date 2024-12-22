@@ -10,13 +10,14 @@ use Callmeaf\Base\Traits\HasDate;
 use Callmeaf\Base\Traits\HasParent;
 use Callmeaf\Base\Traits\HasStatus;
 use Callmeaf\Base\Traits\HasType;
+use Callmeaf\Base\Traits\Sluggable;
 use Callmeaf\Geography\Enums\CountryStatus;
 use Callmeaf\Geography\Enums\CountryType;
 use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model implements HasResponseTitles,HasEnum
 {
-    use HasParent,HasDate,HasStatus,HasType;
+    use HasParent,HasDate,HasStatus,HasType,Sluggable;
     protected $fillable = [
         'parent_id',
         'status',
